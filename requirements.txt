@@ -12,3 +12,4 @@ passlib==1.7.4
 six==1.16.0
 Werkzeug==2.2.2
 WTForms==3.0.1
+PyMySQL==0.8.0

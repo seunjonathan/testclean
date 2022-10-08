@@ -10,8 +10,8 @@ app = Flask(__name__)
 conf = {
     "host": "containers-us-west-90.railway.app",
     "port": 6888,
-    "user": "root",
-    "password": "TDCQjkG7pqIE49yMbfza",
+    "user": "seunjonathan",
+    "password": "Gre@tness123",
     "charset": "utf8mb4",
     "cursorclass": pymysql.cursors.DictCursor,
     "database": "railway"

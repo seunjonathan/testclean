@@ -2,9 +2,20 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators   #this is to handle the forms
 from passlib.hash import sha256_crypt   #this is for encypting our passwords
 import os
-
+import pymysql
 
 app = Flask(__name__)
+
+# Variables to Connect to the database
+conf = {
+    "host": "containers-us-west-90.railway.app",
+    "port": 6888,
+    "user": "root",
+    "password": "TDCQjkG7pqIE49yMbfza",
+    "charset": "utf8mb4",
+    "cursorclass": pymysql.cursors.DictCursor,
+    "database": "railway"
+}
 
 
 #Home
@@ -33,10 +44,11 @@ def register():
         password = sha256_crypt.encrypt(str(form.password.data))
 
 #create cursor
-        # cur = mysql.connection.cursor()
-        # cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)", (name, email, username, password))
-        # mysql.connection.commit()
-        # cur.close()
+        conn = pymysql.connect(**conf)
+        cur = conn.cursor()
+        cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)", (name, email, username, password))
+        conn.commit()
+        conn.close()
 
         # flash('You are now registered and can log in', 'success')
 

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, session, logging
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators   #this is to handle the forms
 from passlib.hash import sha256_crypt   #this is for encypting our passwords
+import os
 
 
 app = Flask(__name__)
@@ -49,4 +50,4 @@ def register():
 
 if __name__ == '__main__':    #saying if this flie was selected to run, execute whats below, but if it was ref as a library, dont run
     app.secret_key='secret123'
-    app.run(debug=True)
+    app.run(debug=True, port=os.getenv("PORT", default=5000))

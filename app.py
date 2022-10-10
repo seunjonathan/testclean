@@ -9,7 +9,7 @@ app = Flask(__name__)
 # Variables to Connect to the database
 conf = {
     "host": "containers-us-west-96.railway.app",
-    "port": 6155,
+    "port": 3306,
     "user": "root",
     "password": "f7G8FVIUxKxjIaiOoY6W",
     "charset": "utf8mb4",

@@ -13,6 +13,7 @@ conf = pymysql.connect(host= "containers-us-west-96.railway.app",
     password= "Gre@tness123",
     charset= "utf8mb4",
     cursorclass= pymysql.cursors.DictCursor,
+    protocol = "TCP",
     database= "railway")
 
 

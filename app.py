@@ -46,7 +46,7 @@ def register():
 #create cursor
         conn = pymysql.connect(**conf)
         cur = conn.cursor()
-        cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)", (name, email, username, password))
+        cur.execute("INSERT INTO users1(name, email, username, password) VALUES(%s, %s, %s, %s)", (name, email, username, password))
         conn.commit()
         conn.close()
 

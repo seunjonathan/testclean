@@ -11,6 +11,22 @@ app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:C7nW8HJtlEuBftF95AL
 
 db=SQLAlchemy(app)
 
+class User(db.Model):
+	__tablename__ = 'users'
+	id = db.Column(db.Interger, primary_key=True)
+	name = db.Column(db.String(100))
+	email = db.Column(db.String(100))
+	username = db.Column(db.String(30), unique=True)
+	password = db.Column(db.String(150))
+	register_date = db.Column(db.Datetime)
+	
+	def __init__(self, name, email, username, password, register_date):
+		self.name = name
+		self.email = email
+		self.username = username
+		self.password = password
+		self.register_date = register_date
+
 
 # Variables to Connect to the database
 #conn = pymysql.connect(host= "containers-us-west-96.railway.app",
@@ -38,15 +54,28 @@ class RegisterForm(Form):
     ])
     confirm = PasswordField('Confirm password')
 
+#@app.route('/register', methods = ['GET', 'POST'])
+#def register():
+#    form = RegisterForm(request.form)
+#    if request.method == 'POST' and form.validate():
+#        name = form.name.data
+#        email = form.email.data
+#        username = form.username.data
+#        password = sha256_crypt.encrypt(str(form.password.data))
+
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
-    form = RegisterForm(request.form)
-    if request.method == 'POST' and form.validate():
-        name = form.name.data
-        email = form.email.data
-        username = form.username.data
-        password = sha256_crypt.encrypt(str(form.password.data))
-
+    name = request.form['name']
+    email = request.form['email']
+    username = request.form['username']
+    password = request.form['password']
+    
+    user = User(name, email, username, password)
+    db.session.add(user)
+    db.session.commit()
+        
+        
+        
 #create cursor
         #conn = pymysql.connect(conf)
 #        cur = conn.cursor()
@@ -54,10 +83,10 @@ def register():
 #        conn.commit()
 #        conn.close()
 
-        # flash('You are now registered and can log in', 'success')
+    flash('You are now registered and can log in', 'success')
 
         
-        return redirect(url_for('index'))
+#        return redirect(url_for('index'))
 
 
     return render_template('register.html', form=form)

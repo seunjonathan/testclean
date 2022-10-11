@@ -18,14 +18,14 @@ class User(db.Model):
 	email = db.Column(db.String(100))
 	username = db.Column(db.String(30), unique=True)
 	password = db.Column(db.String(150))
-	register_date = db.Column(db.String(20))
+#	register_date = db.Column(db.String(20))
 	
-	def __init__(self, name, email, username, password, register_date):
+	def __init__(self, name, email, username, password):
 		self.name = name
 		self.email = email
 		self.username = username
 		self.password = password
-		self.register_date = register_date
+#		self.register_date = register_date
 
 
 # Variables to Connect to the database
@@ -70,8 +70,8 @@ def register():
     username = request.form['username']
     password = request.form['password']
     
-    user = User(name, email, username, password)
-    db.session.add(user)
+    data = User(name, email, username, password)
+    db.session.add(data)
     db.session.commit()
         
         
@@ -83,7 +83,7 @@ def register():
 #        conn.commit()
 #        conn.close()
 
-    flash('You are now registered and can log in', 'success')
+#    flash('You are now registered and can log in', 'success')
 
         
 #        return redirect(url_for('index'))

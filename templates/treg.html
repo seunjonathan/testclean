@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<title>Python Flask PostgreSQL simple registration</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />    
+</head>
+<body >
+<div class="container" >
+    <div class="row" style="padding:50px;">
+        <p><h1>Python Flask PostgreSQL simple registration</h1></p>
+        <form action="/submit" method="POST">
+            <div class="mb-3">
+              <label class="form-label">Name:</label>
+              <input type="text" id="name" name="name" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email:</label>
+                <input type="text" id="email" name="email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Username:</label>
+                <input type="text" id="username" name="username" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password:</label>
+                <input type="text" id="password" name="password" class="form-control">
+            </div>
+            <br/><br/>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+   </div>
+</div>
+</body>
+</html>

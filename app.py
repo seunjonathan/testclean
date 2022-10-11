@@ -8,12 +8,12 @@ app = Flask(__name__)
 
 # Variables to Connect to the database
 #conn = pymysql.connect(host= "containers-us-west-96.railway.app",
-    port= 6155,
-    user= "seun",
-    password= "Gre@tness123",
-    charset= "utf8mb4",
-    cursorclass= pymysql.cursors.DictCursor,
-    database= "railway")
+#    port= 6155,
+#    user= "seun",
+#    password= "Gre@tness123",
+#    charset= "utf8mb4",
+#    cursorclass= pymysql.cursors.DictCursor,
+#    database= "railway")
 
 
 #Home

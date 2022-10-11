@@ -88,8 +88,8 @@ def register():
         
 #        return redirect(url_for('index'))
 
-
-    return render_template('register.html', form=form)
+    return render_template('register.html')
+#    return render_template('register.html', form=form)
 
 
 

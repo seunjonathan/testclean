@@ -7,7 +7,7 @@ import pymysql
 app = Flask(__name__)
 
 # Variables to Connect to the database
-conn = pymysql.connect(host= "containers-us-west-96.railway.app",
+#conn = pymysql.connect(host= "containers-us-west-96.railway.app",
     port= 6155,
     user= "seun",
     password= "Gre@tness123",
@@ -43,10 +43,10 @@ def register():
 
 #create cursor
         #conn = pymysql.connect(conf)
-        cur = conn.cursor()
-        cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)", (name, email, username, password))
-        conn.commit()
-        conn.close()
+#        cur = conn.cursor()
+#        cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)", (name, email, username, password))
+#        conn.commit()
+#        conn.close()
 
         # flash('You are now registered and can log in', 'success')
 

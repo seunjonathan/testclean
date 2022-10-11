@@ -86,9 +86,9 @@ def treg():
 #    flash('You are now registered and can log in', 'success')
 
         
-#        return redirect(url_for('index'))
+    return redirect(url_for('index'))
 
-    return render_template('treg.html')
+#    return render_template('treg.html')
 #    return render_template('register.html', form=form)
 
 

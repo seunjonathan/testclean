@@ -64,7 +64,7 @@ def index():
 #        password = sha256_crypt.encrypt(str(form.password.data))
 
 @app.route('/treg', methods = ['GET', 'POST'])
-def register():
+def treg():
     name = request.form['name']
     email = request.form['email']
     username = request.form['username']

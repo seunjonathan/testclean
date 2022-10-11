@@ -3,17 +3,23 @@ from wtforms import Form, StringField, TextAreaField, PasswordField, validators 
 from passlib.hash import sha256_crypt   #this is for encypting our passwords
 import os
 import pymysql
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:C7nW8HJtlEuBftF95ALs@containers-us-west-31.railway.app:6301/railway'
+
+db=SQLAlchemy(app)
+
+
 # Variables to Connect to the database
-conn = pymysql.connect(host= "containers-us-west-96.railway.app",
-    port= 6155,
-    user= "seunjonathan",
-    password= "Gre@tness123",
-    charset= "utf8mb4",
-    cursorclass= pymysql.cursors.DictCursor,
-    database= "railway")
+#conn = pymysql.connect(host= "containers-us-west-96.railway.app",
+#    port= 6155,
+#    user= "seunjonathan",
+#    password= "Gre@tness123",
+#    charset= "utf8mb4",
+#    cursorclass= pymysql.cursors.DictCursor,
+#    database= "railway")
 
 
 #Home

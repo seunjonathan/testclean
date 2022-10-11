@@ -63,7 +63,7 @@ def index():
 #        username = form.username.data
 #        password = sha256_crypt.encrypt(str(form.password.data))
 
-@app.route('/register', methods = ['GET', 'POST'])
+@app.route('/treg', methods = ['GET', 'POST'])
 def register():
     name = request.form['name']
     email = request.form['email']
@@ -88,7 +88,7 @@ def register():
         
 #        return redirect(url_for('index'))
 
-    return render_template('register.html')
+    return render_template('treg.html')
 #    return render_template('register.html', form=form)
 
 
